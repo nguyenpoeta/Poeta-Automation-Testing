@@ -1,0 +1,3 @@
+*** Variables ***
+&{Home_AddCompany}    NewCompanybtn=//a[text()='New Company']    CompanyName=//*[@id="form1"]/input[1]    TicketHeaderOne=//*[@id="form1"]/input[2]    TicketHeaderTwo=//*[@id="form1"]/input[3]    ContactPerson=//*[@id="form1"]/input[4]    Email=//*[@id="form1"]/input[5]    Password=//*[@id="form1"]/input[6]
+...               Latitude=//*[@id="form1"]/input[7]    Longitude=//*[@id="form1"]/input[8]    ZoneTicketAbility=//*[@id="form1"]/input[9]    PAX=//*[@id="form1"]/input[10]    AddCompanybtn=//*[@id="form1"]/div/input[2]

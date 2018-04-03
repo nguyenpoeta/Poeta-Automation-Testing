@@ -1,0 +1,30 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          Elements/Login_Page.txt
+Resource          Elements/URLs.txt
+Resource          DataInput.txt
+Resource          Elements/Home_Page.txt
+
+*** Keywords ***
+Admin_Login
+    Open Browser    ${MainURL}    chrome
+    Input Text    &{LoginElements}[Usernametxt]    &{ListAccounts}[Admin]
+    Input Password    &{LoginElements}[Passwordtxt]    &{ListAccounts}[Adminpwd]
+    Click Element    &{LoginElements}[Loginbtn]
+
+Create Operator
+    Sleep    10s
+    Click Element    &{Home_AddCompany}[NewCompanybtn]
+    Sleep    5s
+    Input Text    &{Home_AddCompany}[CompanyName]    &{NewCompany_sampledata}[CompanyName]
+    Input Text    &{Home_AddCompany}[TicketHeaderOne]    &{NewCompany_sampledata}[TicketHeaderOne]
+    Input Text    &{Home_AddCompany}[TicketHeaderTwo]    &{NewCompany_sampledata}[TicketHeaderTwo]
+    Input Text    &{Home_AddCompany}[ContactPerson]    &{NewCompany_sampledata}[ContactPerson]
+    Input Text    &{Home_AddCompany}[Email]    &{NewCompany_sampledata}[Email]
+    Input Text    &{Home_AddCompany}[Password]    &{NewCompany_sampledata}[Password]
+    Input Text    &{Home_AddCompany}[Latitude]    &{NewCompany_sampledata}[Latitude]
+    Input Text    &{Home_AddCompany}[Longitude]    &{NewCompany_sampledata}[Longitude]
+    Click Element    &{Home_AddCompany}[ZoneTicketAbility]
+    Click Element    &{Home_AddCompany}[PAX]
+    Click Element    &{Home_AddCompany}[AddCompanybtn]
+    Confirm Action
