@@ -10,6 +10,6 @@ Create New SmartCard
     Comment    Click Element    //a[@class='chosen-single']
     Comment    Input Text    //input[@type='text']    ${selectcompany}
     Click Element    //a[@class='chosen-single']
-    Select From List By Value    //select[@name='company_name']    Khoa Tran LTD
+    Select From List    //select[@name='company_name']    Khoa Tran LTD
     Input Text    ${txt_Card_Number}    ${cardnumber}
     Input Text    ${txt_7_digits_code}    ${7digitscode}
