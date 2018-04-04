@@ -31,8 +31,8 @@ TC02: Verify that Admin is able to logout
     Comment    STEP 3: Logout admin
     Click Element    ${lnk_Logout}
     Comment    VP: Login screen displays
-    Wait Until Element Is Visible    ${ttl_login_Login_Title}
-    Page Should Contain Element    ${ttl_login_Login_Title}
+    Wait Until Element Is Visible    ${tle_Login_Title}
+    Page Should Contain Element    ${tle_Login_Title}
     [Teardown]    Close Browser
 
 TC03: Verirfy that user is able to login with valid Operator credential
@@ -46,8 +46,8 @@ TC03: Verirfy that user is able to login with valid Operator credential
     Comment    STEP 4: Click on Login button
     Click Element    ${btn_login}
     Comment    VP: Operator login successfully and default page is Live Tracking
-    Wait Until Element Is Visible    ${ttl_GpsTracking_Live_Tracking}    10s
-    Page Should Contain Element    ${ttl_GpsTracking_Live_Tracking}
+    Wait Until Element Is Visible    ${tle_GpsTracking_Live_Tracking}    10s
+    Page Should Contain Element    ${tle_GpsTracking_Live_Tracking}
     [Teardown]    Logout
 
 TC04: Verify that Operator is able to logout
@@ -59,8 +59,8 @@ TC04: Verify that Operator is able to logout
     Comment    STEP 3: Logout admin
     Click Element    ${lnk_Logout}
     Comment    VP: Login screen displays
-    Wait Until Element Is Visible    ${ttl_login_Login_Title}
-    Page Should Contain Element    ${ttl_login_Login_Title}
+    Wait Until Element Is Visible    ${tle_Login_Title}
+    Page Should Contain Element    ${tle_Login_Title}
     [Teardown]    Close Browser
 
 Verify that user is unable to login with invalid Username
@@ -69,8 +69,8 @@ Verify that user is unable to login with invalid Username
     Comment    STEPS 2: Login with invalid Username
     Login    ${invalidUsername}    ${adminPassword}
     Comment    VP: Verify error message displays
-    Wait Until Element Is Visible    ${error_invalidCredential}
-    Page Should Contain Element    ${error_invalidCredential}
+    Wait Until Element Is Visible    ${msg_error_invalidCredential}
+    Page Should Contain Element    ${msg_error_invalidCredential}
     [Teardown]    Close Browser
 
 Verify that user is unable to log with invalid Password
@@ -79,8 +79,8 @@ Verify that user is unable to log with invalid Password
     Comment    STEPS 2: Login with invalid Username
     Login    ${adminUsername}    ${invalidPassword}
     Comment    VP: Verify error message displays
-    Wait Until Element Is Visible    ${error_invalidCredential}
-    Page Should Contain Element    ${error_invalidCredential}
+    Wait Until Element Is Visible    ${msg_error_invalidCredential}
+    Page Should Contain Element    ${msg_error_invalidCredential}
     [Teardown]    Close Browser
 
 Verify Password is required while logging
@@ -89,6 +89,6 @@ Verify Password is required while logging
     Comment    STEPS 2: Login with invalid Username
     Login    ${adminUsername}    ${EMPTY}
     Comment    VP: Verify error message displays
-    Wait Until Element Is Visible    ${error_PasswordRequired}
-    Page Should Contain Element    ${error_PasswordRequired}
+    Wait Until Element Is Visible    ${msg_error_PasswordRequired}
+    Page Should Contain Element    ${msg_error_PasswordRequired}
     [Teardown]    Close Browser

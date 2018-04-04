@@ -1,4 +1,4 @@
 *** Variables ***
-${label_Welcome}    //li[text()='Welcome: ']
+${lbl_Welcome}    //li[text()='Welcome: ']
 ${lnk_Logout}     //a[text()='Logout']
 ${tab_Manage_SmartCards}    //a[text()='Manage SmartCards']

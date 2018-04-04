@@ -1,7 +1,7 @@
 *** Variables ***
-${opr_pagetitle_Routes}    //td[text()='Routes']
+${tle_Routes_opr_pagetitle}    //td[text()='Routes']
 ${btn_New_Category}    //a[text()='New Category']
-${popup_Add_Route_Category}    //div[@class='fancybox-skin']
+${pop_Add_Route_Category}    //div[@class='fancybox-skin']
 ${btn_Save}       //input[@value='Save']
 ${txt_Category_name}    //input[@name='cat_name']
-${table_Routes}    //table[@id='example']
+${tbl_Routes}     //table[@id='example']
