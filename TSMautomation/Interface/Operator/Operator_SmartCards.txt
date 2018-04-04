@@ -1,0 +1,5 @@
+*** Variables ***
+${tbl_Operator-SmartCards_datatable}    //table[@id='example']
+${btn_Operator-SmartCards_New_SmartCard}    //a[@href='http://transportme-staging.poetadigital.com/index.php/smart_cards/passenger_add_smart_cards']
+${pop_Opr-SmartCards_Add_Smart_Cards_To_Passenger}    //div[@class='fancybox-skin']
+${drp_Opr-SmartCards_Selet_Card_Number}    //a[@class='chosen-single']

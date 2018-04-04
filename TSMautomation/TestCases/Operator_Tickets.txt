@@ -11,14 +11,14 @@ Resource          ../Interface/Operator/Operator_Tickets.txt
 Resource          ../Keywork/Operator_Tickets.txt
 
 *** Test Cases ***
-TC01: Verify that user is able to create new Ticket type
+Verify that user is able to create new Ticket type
     Comment    STEP 1: Launch browser to TransportMe website
     Launch Browser    ${url}
     Comment    STEPS 2: Login with invalid Username
     Login    ${operatorUsername}    ${operatorPassword}
     Wait Until Element Is Visible    ${lnk_Logout}    10s
     Comment    STEP 3: Navigate to Tickets page
-    Navigate to page    Tickets
+    Navigate To Page    Tickets
     Wait Until Element Is Visible    ${lnk_Privacy_Statement}
     Comment    STEP 4: Click New Ticket Type button
     Click Element    ${btn_New_Ticket_Type}
@@ -32,5 +32,6 @@ TC01: Verify that user is able to create new Ticket type
     Confirm Action
     Comment    VP: New Ticket Type is created successfully
     Wait Until Element Is Visible    ${lnk_Privacy_Statement}
-    Verify new record is created    ${randomString}
-    [Teardown]    Logout
+    Check Record Is Existed    ${randomString}
+    Logout
+    [Teardown]    Close Browser

@@ -10,14 +10,14 @@ Resource          ../GlobalVariable/CommonVariable.txt
 Library           String
 
 *** Test Cases ***
-TC01: Verify that Operator can create new Category
+Verify that Operator can create new Category
     Comment    STEP 1: Launch browser to TransportMe website
     Launch Browser    ${url}
     Comment    STEPS 2: Login with invalid Username
     Login    ${operatorUsername}    ${operatorPassword}
     Wait Until Element Is Visible    ${lnk_Logout}    10s
     Comment    STEP 3: Navigate to Routes page
-    Navigate to page    Routes
+    Navigate To Page    Routes
     Wait Until Element Is Visible    ${lnk_Privacy_Statement}
     Comment    STEP 4: Click New Category button
     Click Element    ${btn_New_Category}
@@ -30,22 +30,23 @@ TC01: Verify that Operator can create new Category
     Confirm Action
     Comment    VP: New Category is added successfully
     Wait Until Element Is Visible    ${tbl_Routes}
-    Page Should Contain Element    //td[text()='${randomString}']
-    ${/}
-    [Teardown]    Logout
+    Check Record Is Existed    ${randomString}
+    Logout
+    [Teardown]    Close Browser
 
-TC02: Verify that Operator can delete particular exsiting Routes
+Verify that Operator can delete particular exsiting Routes
     Comment    STEP 1: Launch browser to TransportMe website
     Launch Browser    ${url}
     Comment    STEPS 2: Login with invalid Username
     Login    ${operatorUsername}    ${operatorPassword}
     Wait Until Element Is Visible    ${lnk_Logout}    10s
     Comment    STEP 3: Navigate to Routes page
-    Navigate to page    Routes
+    Navigate To Page    Routes
     Wait Until Element Is Visible    ${lnk_Privacy_Statement}
     Comment    STEP 4: Delete a particular Routes
     Delete Record    ${randomString}
     Comment    VP: Particular Route is removed from table
     Wait Until Element Is Visible    ${tbl_Routes}
-    Verify new record is created    ${randomString}
-    [Teardown]    Logout
+    Check Record Is Not Existed    ${randomString}
+    Logout
+    [Teardown]    Close Browser

@@ -20,7 +20,8 @@ TC01: Verify that user is able to login with valid Admin credential
     Comment    VP: User is login successfully
     Wait Until Element Is Visible    ${lnk_Logout}    10s
     Page Should Contain Element    ${lnk_Logout}
-    [Teardown]    Logout
+    Logout
+    [Teardown]    Close Browser
 
 TC02: Verify that Admin is able to logout
     Comment    STEP 1: Launch browser to http://transportme-staging.poetadigital.com/index.php/admin
@@ -48,7 +49,8 @@ TC03: Verirfy that user is able to login with valid Operator credential
     Comment    VP: Operator login successfully and default page is Live Tracking
     Wait Until Element Is Visible    ${tle_GpsTracking_Live_Tracking}    10s
     Page Should Contain Element    ${tle_GpsTracking_Live_Tracking}
-    [Teardown]    Logout
+    Logout
+    [Teardown]    Close Browser
 
 TC04: Verify that Operator is able to logout
     Comment    STEP 1: Launch browser to http://transportme-staging.poetadigital.com/index.php/admin

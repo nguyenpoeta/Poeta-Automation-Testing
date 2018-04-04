@@ -10,7 +10,6 @@ Library           String
 Logout
     Page Should Contain Element    ${lnk_Logout}
     Click Element    ${lnk_Logout}
-    Close Browser
 
 Login
     [Arguments]    ${username}    ${password}
@@ -35,7 +34,7 @@ Launch Browser
     Open Browser    ${url}    Chrome
     Maximize Browser Window
 
-Navigate to page
+Navigate To Page
     [Arguments]    ${menu_text}
     Click Element    //a[text()='${menu_text}']
 
@@ -44,7 +43,7 @@ RandomString4Chars
     Set Global Variable    ${randomString}    ${temp}
     [Return]    ${randomString}
 
-Verify new record is created
+Check Record Is Existed
     [Arguments]    ${record_label}
     Page Should Contain Element    //td[text()='${randomString}']
 
@@ -52,3 +51,7 @@ Random7digitCode
     ${temp}=    Generate Random String    7    [NUMBERS]
     Set Global Variable    ${randomString}    ${temp}
     [Return]    ${randomString}
+
+Check Record Is Not Existed
+    [Arguments]    ${record_label}
+    Page Should Not Contain    //td[text()='${randomString}']
