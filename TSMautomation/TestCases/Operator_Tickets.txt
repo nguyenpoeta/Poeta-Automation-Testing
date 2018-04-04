@@ -1,0 +1,36 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          ../GlobalVariable/CommonVariable.txt
+Resource          ../GlobalVariable/LoginVariable.txt
+Resource          ../Interface/Admin/Admin_HomePage.txt
+Resource          ../Interface/Operator/Operator_Home_page.txt
+Resource          ../Interface/Operator/Operator_Routes.txt
+Resource          ../Interface/LoginPage.txt
+Resource          ../Keywork/Common_keywork.txt
+Resource          ../Interface/Operator/Operator_Tickets.txt
+Resource          ../Keywork/Operator_Tickets.txt
+
+*** Test Cases ***
+TC01: Verify that user is able to create new Ticket type
+    Comment    STEP 1: Launch browser to TransportMe website
+    Launch Browser    ${url}
+    Comment    STEPS 2: Login with invalid Username
+    Login    ${operatorUsername}    ${operatorPassword}
+    Wait Until Element Is Visible    ${lnk_Logout}    10s
+    Comment    STEP 3: Navigate to Tickets page
+    Navigate to page    Tickets
+    Wait Until Element Is Visible    ${link_Privacy_Statement}
+    Comment    STEP 4: Click New Ticket Type button
+    Click Element    ${btn_New_Ticket_Type}
+    Wait Until Element Is Visible    ${popup_Add_Ticket_Type}
+    Comment    STEP 5: Enter valid data into all fields with random text
+    RandomString4Chars
+    Create Ticket Type    ${randomString}    ${randomString}    2    y    y    ${randomString}
+    ...    y    ${randomString}
+    Comment    STEP 6: Click Save button
+    Click Element    ${btn_Save}
+    Confirm Action
+    Comment    VP: New Ticket Type is created successfully
+    Wait Until Element Is Visible    ${link_Privacy_Statement}
+    Verify new record is created    ${randomString}
+    [Teardown]    Logout

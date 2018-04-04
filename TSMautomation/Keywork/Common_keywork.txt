@@ -1,0 +1,49 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          ../Interface/LoginPage.txt
+Resource          ../Interface/Admin/Admin_HomePage.txt
+Resource          ../Interface/Operator/Operator_Home_page.txt
+Resource          ../GlobalVariable/CommonVariable.txt
+Library           String
+
+*** Keywords ***
+Logout
+    Page Should Contain Element    ${lnk_Logout}
+    Click Element    ${lnk_Logout}
+    Close Browser
+
+Login
+    [Arguments]    ${username}    ${password}
+    Wait Until Element Is Visible    ${btn_login}
+    Input Text    ${txt_username}    ${username}
+    Input Text    ${txt_password}    ${password}
+    Click Element    ${btn_login}
+
+RandomString6chars
+    ${temp}=    Generate Random String    6    [LOWER][NUMBERS]
+    Set Global Variable    ${randomString}    ${temp}
+    [Return]    ${randomString}
+
+Delete Record
+    [Arguments]    ${record_label}
+    Click Element    //td[text()='${record_label}']/following-sibling::td[@class='data_delete ']
+    Confirm Action
+    Confirm Action
+
+Launch Browser
+    [Arguments]    ${url}
+    Open Browser    ${url}    Chrome
+    Maximize Browser Window
+
+Navigate to page
+    [Arguments]    ${menu_text}
+    Click Element    //a[text()='${menu_text}']
+
+RandomString4Chars
+    ${temp}=    Generate Random String    4    [LOWER][NUMBERS]
+    Set Global Variable    ${randomString}    ${temp}
+    [Return]    ${randomString}
+
+Verify new record is created
+    [Arguments]    ${record_label}
+    Page Should Contain Element    //td[text()='${randomString}']

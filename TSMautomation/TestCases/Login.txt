@@ -1,0 +1,92 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          ../GlobalVariable/LoginVariable.txt
+Resource          ../Interface/LoginPage.txt
+Resource          ../Keywork/Common_keywork.txt
+Resource          ../Interface/Admin/Admin_HomePage.txt
+Resource          ../Interface/Operator/Operator_Gps_Tracking.txt
+
+*** Test Cases ***
+TC01: Verify that user is able to login with valid Admin credential
+    Comment    STEPS 1: Launch browser to http://transportme-staging.poetadigital.com/index.php/admin
+    Launch Browser    ${url}
+    Wait Until Element Is Visible    ${txt_password}
+    Comment    STEPS 2: Enter Admin Username
+    Input Text    ${txt_username}    ${adminUsername}
+    Comment    STEP 3: Input Admin password
+    Input Password    ${txt_password}    ${adminPassword}
+    Comment    STEP 4: Click on Login button
+    Click Element    ${btn_login}
+    Comment    VP: User is login successfully
+    Wait Until Element Is Visible    ${lnk_Logout}    10s
+    Page Should Contain Element    ${ttl_GpsTracking_Live_Tracking}
+    [Teardown]    Logout
+
+TC02: Verify that Admin is able to logout
+    Comment    STEP 1: Launch browser to http://transportme-staging.poetadigital.com/index.php/admin
+    Launch Browser    ${url}
+    Comment    STEP 2: Log in with valid Admin credential
+    Login    ${adminUsername}    ${adminPassword}
+    Wait Until Element Is Visible    ${lnk_Logout}    10s
+    Comment    STEP 3: Logout admin
+    Click Element    ${lnk_Logout}
+    Comment    VP: Login screen displays
+    Wait Until Element Is Visible    ${ttl_login_Login_Title}
+    [Teardown]    Close Browser
+
+TC03: Verirfy that user is able to login with valid Operator credential
+    Comment    STEPS 1: Launch browser to http://transportme-staging.poetadigital.com/index.php/admin
+    Launch Browser    ${url}
+    Wait Until Element Is Visible    ${txt_password}
+    Comment    STEPS 2: Enter Admin Username
+    Input Text    ${txt_username}    ${operatorUsername}
+    Comment    STEP 3: Input Admin password
+    Input Password    ${txt_password}    ${operatorPassword}
+    Comment    STEP 4: Click on Login button
+    Click Element    ${btn_login}
+    Comment    VP: User is login successfully
+    Wait Until Element Is Visible    ${lnk_Logout}    10s
+    Page Should Contain Element    ${label_Welcome}
+    [Teardown]    Logout
+
+TC04: Verify that Operator is able to logout
+    Comment    STEP 1: Launch browser to http://transportme-staging.poetadigital.com/index.php/admin
+    Launch Browser    ${url}
+    Comment    STEP 2: Log in with valid Admin credential
+    Login    ${operatorUsername}    ${operatorPassword}
+    Wait Until Element Is Visible    ${lnk_Logout}    10s
+    Comment    STEP 3: Logout admin
+    Click Element    ${lnk_Logout}
+    Comment    VP: Login screen displays
+    Wait Until Element Is Visible    ${ttl_login_Login_Title}
+    [Teardown]    Close Browser
+
+Verify that user is unable to login with invalid Username
+    Comment    STEP 1: Launch browser to TransportMe website
+    Launch Browser    ${url}
+    Comment    STEPS 2: Login with invalid Username
+    Login    ${invalidUsername}    ${adminPassword}
+    Comment    VP: Verify error message displays
+    Wait Until Element Is Visible    ${error_invalidCredential}
+    Page Should Contain Element    ${error_invalidCredential}
+    [Teardown]    Close Browser
+
+Verify that user is unable to log with invalid Password
+    Comment    STEP 1: Launch browser to TransportMe website
+    Launch Browser    ${url}
+    Comment    STEPS 2: Login with invalid Username
+    Login    ${adminUsername}    ${invalidPassword}
+    Comment    VP: Verify error message displays
+    Wait Until Element Is Visible    ${error_invalidCredential}
+    Page Should Contain Element    ${error_invalidCredential}
+    [Teardown]    Close Browser
+
+Verify Password is required while logging
+    Comment    STEP 1: Launch browser to TransportMe website
+    Launch Browser    ${url}
+    Comment    STEPS 2: Login with invalid Username
+    Login    ${adminUsername}    ${EMPTY}
+    Comment    VP: Verify error message displays
+    Wait Until Element Is Visible    ${error_PasswordRequired}
+    Page Should Contain Element    ${error_PasswordRequired}
+    [Teardown]    Close Browser

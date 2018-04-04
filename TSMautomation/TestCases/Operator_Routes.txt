@@ -1,0 +1,51 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          ../Interface/LoginPage.txt
+Resource          ../Keywork/Common_keywork.txt
+Resource          ../GlobalVariable/LoginVariable.txt
+Resource          ../Interface/Admin/Admin_HomePage.txt
+Resource          ../Interface/Operator/Operator_Home_page.txt
+Resource          ../Interface/Operator/Operator_Routes.txt
+Resource          ../GlobalVariable/CommonVariable.txt
+Library           String
+
+*** Test Cases ***
+TC01: Verify that Operator can create new Category
+    Comment    STEP 1: Launch browser to TransportMe website
+    Launch Browser    ${url}
+    Comment    STEPS 2: Login with invalid Username
+    Login    ${operatorUsername}    ${operatorPassword}
+    Wait Until Element Is Visible    ${lnk_Logout}    10s
+    Comment    STEP 3: Navigate to Routes page
+    Navigate to page    Routes
+    Wait Until Element Is Visible    ${link_Privacy_Statement}
+    Comment    STEP 4: Click New Category button
+    Click Element    ${btn_New_Category}
+    Wait Until Element Is Visible    ${popup_Add_Route_Category}
+    Comment    Step 5: Input Category name
+    RandomString6chars
+    Input Text    ${txt_Category_name}    ${randomString}
+    Comment    Step 6: Click Save button
+    Click Element    ${btn_Save}
+    Confirm Action
+    Comment    VP: New Category is added successfully
+    Wait Until Element Is Visible    ${table_Routes}
+    Page Should Contain Element    //td[text()='${randomString}']
+    ${/}
+    [Teardown]    Logout
+
+TC02: Verify that Operator can delete particular exsiting Routes
+    Comment    STEP 1: Launch browser to TransportMe website
+    Launch Browser    ${url}
+    Comment    STEPS 2: Login with invalid Username
+    Login    ${operatorUsername}    ${operatorPassword}
+    Wait Until Element Is Visible    ${lnk_Logout}    10s
+    Comment    STEP 3: Navigate to Routes page
+    Navigate to page    Routes
+    Wait Until Element Is Visible    ${link_Privacy_Statement}
+    Comment    STEP 4: Delete a particular Routes
+    Delete Record    ${randomString}
+    Comment    VP: Particular Route is removed from table
+    Wait Until Element Is Visible    ${table_Routes}
+    Verify new record is created    ${randomString}
+    [Teardown]    Logout

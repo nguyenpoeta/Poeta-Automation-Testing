@@ -1,0 +1,2 @@
+*** Variables ***
+${ttl_GpsTracking_Live_Tracking}    //a[text()='Live Tracking']

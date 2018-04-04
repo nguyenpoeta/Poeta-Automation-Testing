@@ -1,0 +1,3 @@
+*** Variables ***
+${label_Welcome}    //li[text()='Welcome: ']
+${lnk_Logout}     //a[text()='Logout']
