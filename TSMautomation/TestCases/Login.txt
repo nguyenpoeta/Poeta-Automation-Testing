@@ -19,8 +19,7 @@ TC01: Verify that user is able to login with valid Admin credential
     Click Element    ${btn_login}
     Comment    VP: User is login successfully
     Wait Until Element Is Visible    ${lnk_Logout}    10s
-    Page Should Contain Element    ${ttl_GpsTracking_Live_Tracking}
-    comment    TESTTTTT
+    Page Should Contain Element    ${lnk_Logout}
     [Teardown]    Logout
 
 TC02: Verify that Admin is able to logout
@@ -45,9 +44,9 @@ TC03: Verirfy that user is able to login with valid Operator credential
     Input Password    ${txt_password}    ${operatorPassword}
     Comment    STEP 4: Click on Login button
     Click Element    ${btn_login}
-    Comment    VP: User is login successfully
-    Wait Until Element Is Visible    ${lnk_Logout}    10s
-    Page Should Contain Element    ${label_Welcome}
+    Comment    VP: Operator login successfully and default page is Live Tracking
+    Wait Until Element Is Visible    ${ttl_GpsTracking_Live_Tracking}    10s
+    Page Should Contain Element    ${ttl_GpsTracking_Live_Tracking}
     [Teardown]    Logout
 
 TC04: Verify that Operator is able to logout
