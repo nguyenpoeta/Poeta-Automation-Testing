@@ -47,3 +47,8 @@ RandomString4Chars
 Verify new record is created
     [Arguments]    ${record_label}
     Page Should Contain Element    //td[text()='${randomString}']
+
+Random7digitCode
+    ${temp}=    Generate Random String    7    [NUMBERS]
+    Set Global Variable    ${randomString}    ${temp}
+    [Return]    ${randomString}

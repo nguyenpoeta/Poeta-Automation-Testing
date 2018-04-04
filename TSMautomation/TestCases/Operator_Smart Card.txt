@@ -1,0 +1,33 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          ../Interface/LoginPage.txt
+Resource          ../Keywork/Common_keywork.txt
+Resource          ../GlobalVariable/LoginVariable.txt
+Resource          ../Interface/Admin/Admin_HomePage.txt
+Resource          ../Keywork/Admin_Manage_SmartCards.txt
+Resource          ../Interface/Admin/Admin_Manage_SmartCards.txt
+
+*** Test Cases ***
+Operator is able to assign card individually
+    [Documentation]    1. Open Admin
+    ...    2. Open Manage smartcard
+    ...    3. Create new smartcard and assign to operator
+    ...    4. Logout admin
+    ...    5. Login operator
+    ...    6. Open smartcard
+    ...    7. Open New Smartcard
+    ...    8. Select new smartcard information
+    ...    9. Save
+    ...
+    ...    EXPECTED RESULT:
+    ...    New smartcard is assigned succesfully
+    [Setup]    Launch Browser    ${url}
+    Comment    STEP 1: Login with Admin role
+    Login    ${adminUsername}    ${adminPassword}
+    Wait Until Element Is Visible    ${lnk_Logout}    10s
+    Comment    STEP 2: Navigate to Manage SmartCards tab
+    Navigate to page    Manage SmartCards
+    Wait Until Element Is Visible    ${btn_New_SmartCard}
+    Comment    STEP 3: Create New Smart card and assign to operator
+    Random7digitCode
+    Create New SmartCard    Khoa Tran LTD    ${randomString}    ${randomString}

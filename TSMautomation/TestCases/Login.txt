@@ -32,6 +32,7 @@ TC02: Verify that Admin is able to logout
     Click Element    ${lnk_Logout}
     Comment    VP: Login screen displays
     Wait Until Element Is Visible    ${ttl_login_Login_Title}
+    Page Should Contain Element    ${ttl_login_Login_Title}
     [Teardown]    Close Browser
 
 TC03: Verirfy that user is able to login with valid Operator credential
@@ -59,6 +60,7 @@ TC04: Verify that Operator is able to logout
     Click Element    ${lnk_Logout}
     Comment    VP: Login screen displays
     Wait Until Element Is Visible    ${ttl_login_Login_Title}
+    Page Should Contain Element    ${ttl_login_Login_Title}
     [Teardown]    Close Browser
 
 Verify that user is unable to login with invalid Username
