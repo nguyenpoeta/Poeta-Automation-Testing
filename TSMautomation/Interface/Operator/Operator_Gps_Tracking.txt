@@ -1,2 +1,2 @@
 *** Variables ***
-${tle_GpsTracking_Live_Tracking}    //a[text()='Live Tracking']
+${tle_LiveTracking_GpsTracking}    //a[text()='Live Tracking']

@@ -1,7 +1,7 @@
 *** Variables ***
-${tle_Routes_opr_pagetitle}    //td[text()='Routes']
-${btn_New_Category}    //a[text()='New Category']
-${pop_Add_Route_Category}    //div[@class='fancybox-skin']
+${tle_PageTitle_Op-Routes}    //td[text()='Routes']
+${btn_NewCategory_Op-Routes}    //a[text()='New Category']
+${pop_AddRouteCategory_Op-Routes}    //div[@class='fancybox-skin']
 ${btn_Save}       //input[@value='Save']
-${txt_Category_name}    //input[@name='cat_name']
-${tbl_Routes}     //table[@id='example']
+${txt_CategoryName_Op-Routes}    //input[@name='cat_name']
+${tbl_Routes_Op-Routes}    //table[@id='example']
