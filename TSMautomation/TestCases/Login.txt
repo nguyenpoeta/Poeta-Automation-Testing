@@ -61,8 +61,8 @@ TC04: Verify that Operator is able to logout
     Comment    STEP 3: Logout admin
     Click Element    ${lnk_Logout}
     Comment    VP: Login screen displays
-    Wait Until Element Is Visible    ${tle_Login_Title}
-    Page Should Contain Element    ${tle_Login_Title}
+    Wait Until Element Is Visible    ${tle_Title_Login}
+    Page Should Contain Element    ${tle_Title_Login}
     [Teardown]    Close Browser
 
 Verify that user is unable to login with invalid Username

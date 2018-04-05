@@ -7,7 +7,7 @@ Create New SmartCard
     [Arguments]    ${selectcompany}    ${cardnumber}    ${7digitscode}
     Click Element    ${btn_New_SmartCard}
     Wait Until Element Is Visible    ${btn_AddCard}
-    Click Element    ${drp_Ad-ManageSmartCards_CompanyName}
+    Click Element    ${drp_Companyname_Ad-ManageSmartCards}
     Wait Until Element Is Visible    //li[text()='${selectcompany}']
     Click Element    //li[text()='${selectcompany}']
     Input Text    ${txt_Card_Number}    ${cardnumber}

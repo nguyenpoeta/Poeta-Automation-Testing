@@ -1,2 +1,92 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          ../Interface/Operator/Operator_SmartCards.txt
+Resource          ../GlobalVariable/CommonVariable.txt
+
 *** Keywords ***
 Assign Smart Card To Passenger
+    [Arguments]    ${cardnumber}    ${7digitscode}    ${passengername}    ${telephonenumber}    ${smartcardtype}    ${nofareexpirydate}
+    ...    ${nofarepassengerinfo}    ${nofaremode}    ${nofaretimelimit}    ${staticfareexpirydate}    ${staticfarepassengerinfo}    ${staticfareamount}
+    ...    ${staticfaremode}    ${dynamicfaretickettype}    ${dynamicfareexpirydate}    ${dynamicfaredeductmode}    ${termfarevalidateby}    ${termfareexpirydate}
+    ...    ${termfareavailabletrips}    ${termfarefundamount}    ${allroutes}
+    Comment    Select Card Number
+    Click Element    ${drp_SeletCardNumber_Opr-SmartCards}
+    Wait Until Element Is Visible    //li[text()='${cardnumber}']
+    Click Element    //li[text()='${cardnumber}']
+    Comment    Select 7 Digits Code
+    Click Element    ${drp_Select7DigitsCode_Opr-SmartCards}
+    Wait Until Element Is Visible    //li[text()='${7digitscode}']
+    Click Element    //li[text()='${7digitscode}']
+    Comment    Enter Passenger Name
+    Input Text    ${txt_PassengerName_Opr-SmartCard}    ${passengername}
+    Comment    Enter Telephone Number
+    Input Text    ${txt_TelephoneNumber_Opr-SmartCards}    ${telephonenumber}
+    Comment    Select SmartCard type
+    Click Element    ${drp_Smartcard_Type_Opr-SmartCards}
+    Wait Until Element Is Visible    //li[text()='${smartcardtype}']
+    Click Element    //li[text()='${smartcardtype}']
+    Comment    If Smart Card Type is No Fare, execute Enter No Fare Information
+    Run Keyword If    '${smartcardtype}'=='No Fare'    Enter No Fare Information    ${nofareexpirydate}    ${nofarepassengerinfo}    ${nofaremode}    ${nofaretimelimit}
+    Comment    If Smart Card Type is Static Fare, execute Enter Static Fare Information
+    Run Keyword If    '${smartcardtype}'=='Static Fare'    Enter Static Fare Information    ${staticfareexpirydate}    ${staticfarepassengerinfo}    ${staticfareamount}    ${staticfaremode}
+    Comment    If Smart Card Type is Dynamic Fare, execute Enter Dynamic Fare Information
+    Run Keyword If    '${smartcardtype}'=='Dynamic Fare'    Enter Dynamic Fare Information    ${dynamicfaretickettype}    ${dynamicfareexpirydate}    ${dynamicfaredeductmode}
+    Comment    If Smart Card Type is Term Fare, execute Enter Term Fare Information
+    Run Keyword If    '${smartcardtype}'=='Term Fare'    Enter Term Fare Information    ${termfarevalidateby}    ${termfareexpirydate}    ${termfareavailabletrips}    ${termfarefundamount}
+    Comment    If All Routes value is "Y' then select All Routes checkbox and vice versa
+    Run Keyword If    '${allroutes}'=='y'    Select Checkbox    ${chx_AllRoutes_Opr-SmartCards}
+    Run Keyword If    '${allroutes}'=='y'    Unselect Checkbox    ${chx_AllRoutes_Opr-SmartCards}
+    Comment    Click Assign Smartcard button
+    Comment    ${btn_AssignSmartcard_Opr-SmartCards}
+
+Enter No Fare Information
+    [Arguments]    ${expirydate}    ${passengerinfo}    ${nofaremode}    ${timelimit}
+    Wait Until Page Contains Element    ${txt_NoFareExpiryDate_Opr-SmartCards}
+    Comment    Enter Expiry Date
+    Input Text    ${txt_NoFareExpiryDate_Opr-SmartCards}    ${expirydate}
+    Comment    Enter Passenger info
+    Input Text    ${txt_NoFarePassengerInfo_Opr-SmartCards}    ${passengerinfo}
+    Comment    Select Mode radio button
+    Run Keyword If    '${nofaremode}'=='Tap on only'    Select Radio Button    ${rad_NoFareTapOnOnly_Opr-SmartCards}
+    Run Keyword If    '${nofaremode}'=='Tap on & off'    Select Radio Button    ${rad_NoFareTapOn&Off_Opr-SmartCards}
+    Comment    Enter Time Limit
+    Input Text    ${txt_NoFareTimeLimit_Opr-SmartCards}    ${timelimit}
+
+Enter Static Fare Information
+    [Arguments]    ${staticfareexpirydate}    ${staticfarepassengerinfo}    ${staticfareamount}    ${staticfaremode}
+    Wait Until Page Contains Element    ${txt_StaticFareExpiryDate_Opr-SmartCards}
+    Comment    Enter Expiry date
+    Input Text    ${txt_StaticFareExpiryDate_Opr-SmartCards}    ${staticfareexpirydate}
+    Comment    Enter Passenger info
+    Input Text    ${txt_StaticFarePassengerInfo_Opr-SmartCards}    ${staticfarepassengerinfo}
+    Comment    Enter Amount
+    Input Text    ${txt_StaticFareAmount_Opr-SmartCards}    ${staticfareamount}
+    Comment    Select Mode radio option
+    Run Keyword If    '${staticfaremode}'=='Tap on only'    Select Radio Button    ${rad_StaticFareTapOnOnly_Opr-SmartCards}
+    Run Keyword If    '${staticfaremode}'=='Tap on & off'    Select Radio Button    ${rad_StaticFareTapOn&Off_Opr-SmartCards}
+
+Enter Dynamic Fare Information
+    [Arguments]    ${dynamicfaretickettype}    ${dynamicfareexpirydate}    ${dynamicfaredeductmode}
+    Wait Until Page Contains Element    ${txt_DynamicFareExpiryDate_Opr-SmartCards}
+    Comment    Select Ticket Type
+    Click Element    ${drp_DynamicFareTicketType_Opr-SmartCards}
+    Wait Until Element Is Visible    //li[text()='${dynamicfaretickettype}']
+    Click Element    //li[text()='{dynamicfaretickettype}']
+    Comment    Enter Expiry Date
+    Input Text    ${txt_DynamicFareExpiryDate_Opr-SmartCards}    ${dynamicfareexpirydate}
+    Comment    Select Mode radio button
+    Run Keyword If    '${dynamicfaredeductmode}'=='Tap on only'    Select Radio Button    ${rad_StaticFareTapOnOnly_Opr-SmartCards}
+    Run Keyword If    '${dynamicfaredeductmode}'=='Tap on & off'    Select Radio Button    ${rad_StaticFareTapOn&Off_Opr-SmartCards}
+
+Enter Term Fare Information
+    [Arguments]    ${termfarevalidateby}    ${termfareexpirydate}    ${termfareavailabletrips}    ${termfarefundamount}
+    Wait Until Element Is Visible    ${txt_TermFareExpiryDate_Opr-SmartCards}
+    Comment    Select Validate By ration button
+    Run Keyword If    '${termfarevalidateby}'=='Expiry Date'    Select Radio Button    ${rad_TermFareExpiryDate_Opr-SmartCards}
+    Run Keyword If    '${termfarevalidateby}'=='Available Trips'    Select Radio Button    ${rad_TermFareAvailableTrips_Opr-SmartCards}
+    Comment    Enter Expiry Date value if Validate by Expiry Date
+    Run Keyword If    '${termfarevalidateby}'=='Expiry Date'    Input Text    ${txt_TermFareExpiryDate_Opr-SmartCards}    ${termfareexpirydate}
+    Comment    Enter Available Trips value if Validate by Available Trips
+    Run Keyword If    '${termfarevalidateby}'=='Available Trips'    Input Text    ${txt_TermFareAvailableTrips_Opr-SmartCards}    ${termfareavailabletrips}
+    Comment    Enter Fund Amount
+    Input Text    ${txt_TermFareFundAmout_Opr-SmartCards}    ${termfarefundamount}
