@@ -1,0 +1,2 @@
+*** Keywords ***
+Assign Smart Card To Passenger
