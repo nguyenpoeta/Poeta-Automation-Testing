@@ -1,0 +1,3 @@
+*** Variables ***
+${lnk_Menu}       //a[text()='Routes']
+${lnk_PrivacyStatement}    //a[text()='Privacy Statement']

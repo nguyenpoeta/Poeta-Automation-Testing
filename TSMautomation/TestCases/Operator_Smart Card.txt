@@ -1,0 +1,56 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          ../Interface/LoginPage.txt
+Resource          ../Keywork/Common_keywork.txt
+Resource          ../GlobalVariable/LoginVariable.txt
+Resource          ../Interface/Admin/Admin_HomePage.txt
+Resource          ../Keywork/Admin_Manage_SmartCards.txt
+Resource          ../Interface/Admin/Admin_Manage_SmartCards.txt
+Resource          ../Interface/Operator/Operator_SmartCards.txt
+Resource          ../Keywork/Operator_SmartCards.txt
+
+*** Test Cases ***
+TC01: Operator is able to assign card individually
+    [Documentation]    1. Open Admin
+    ...    2. Open Manage smartcard
+    ...    3. Create new smartcard and assign to operator
+    ...    4. Logout admin
+    ...    5. Login operator
+    ...    6. Open smartcard
+    ...    7. Open New Smartcard
+    ...    8. Select information of smartcard in step 3
+    ...    9. Input information of passenger
+    ...    10. Select No Fare SmartCard Type
+    ...    11. Enter valid data to other fields
+    ...    12. Save
+    ...
+    ...    EXPECTED RESULT:
+    ...    New smartcard is assigned succesfully
+    [Setup]    Launch Browser    ${url}
+    Comment    STEP 1: Login with Admin role
+    Login    ${adminUsername}    ${adminPassword}
+    Wait Until Element Is Visible    ${lnk_Logout}    10s
+    Comment    STEP 2: Navigate to Manage SmartCards tab
+    Navigate To Page    Manage SmartCards
+    Wait Until Element Is Visible    ${btn_New_SmartCard}
+    Comment    STEP 3: Create New Smart card and assign to operator
+    Random7digitCode
+    Create New SmartCard    Khoa Tran LTD    ${randomString}    ${randomString}
+    Wait Until Element Is Visible    ${tbl_Admin-ManageSmartCard_datatable}
+    Comment    STEP 4: Logout admin
+    Logout
+    Wait Until Element Is Visible    ${txt_username}
+    Comment    STEP 5: Login with Operator role
+    Login    ${operatorUsername}    ${operatorPassword}
+    Wait Until Element Is Visible    ${lnk_Logout}
+    Comment    STEP 6: Open SmartCard
+    Navigate To Page    SmartCards
+    Wait Until Element Is Visible    ${tbl_Operator-SmartCards_datatable}
+    Comment    STEP 7: Open New SmartCard
+    Click Element    ${btn_Operator-SmartCards_New_SmartCard}
+    Wait Until Element Is Visible    ${pop_Opr-SmartCards_Add_Smart_Cards_To_Passenger}
+    Comment    STEP 8: Select information of smartcard in step 3
+    Comment    STEP 9: Intput information of existing passenger
+    Comment    STEP 10: Select No Fare for Smart Card Type
+    Comment    STEP 11: Enter valid data into other fields
+    Comment    STEP 12: Click Save button

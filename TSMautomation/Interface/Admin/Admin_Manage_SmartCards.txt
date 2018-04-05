@@ -1,0 +1,7 @@
+*** Variables ***
+${txt_Card_Number}    //input[@name='card_number']
+${txt_7_digits_code}    //input[@id='digits_code']
+${btn_New_SmartCard}    //a[text()='New SmartCard']
+${btn_AddCard}    //input[@value='Add Card']
+${tbl_datatable_Ad-ManageSmartCard}    //table[@id='example']
+${drp_Companyname_Ad-ManageSmartCards}    //a[@class='chosen-single']
