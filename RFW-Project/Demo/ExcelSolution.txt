@@ -1,0 +1,11 @@
+*** Settings ***
+Library           Selenium2Library
+Library           XlsxLibrary
+Library           ExcelLibrary
+Library           xlsxwriter
+
+*** Test Cases ***
+ExcelTC1
+    [Tags]    ExcelTC1
+    Open Excel Current Directory    ExcelTCs.xlsx
+    XlsxLibrary.Create Sheet    1    1
