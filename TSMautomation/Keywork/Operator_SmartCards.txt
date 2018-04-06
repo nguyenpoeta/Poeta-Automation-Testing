@@ -80,13 +80,13 @@ Enter Dynamic Fare Information
 
 Enter Term Fare Information
     [Arguments]    ${termfarevalidateby}    ${termfareexpirydate}    ${termfareavailabletrips}    ${termfarefundamount}
-    Wait Until Element Is Visible    ${txt_TermFareExpiryDate_Opr-SmartCards}
+    Wait Until Element Is Visible    ${rad_TermFareExpiryDate_Opr-SmartCards}
     Comment    Select Validate By ration button
-    Run Keyword If    '${termfarevalidateby}'=='Expiry Date'    Select Radio Button    ${rad_TermFareExpiryDate_Opr-SmartCards}
-    Run Keyword If    '${termfarevalidateby}'=='Available Trips'    Select Radio Button    ${rad_TermFareAvailableTrips_Opr-SmartCards}
+    Run Keyword If    '${termfarevalidateby}'=='Expiry Date'    Click Element    ${rad_TermFareExpiryDate_Opr-SmartCards}
+    Run Keyword If    '${termfarevalidateby}'=='Available Trips'    Click Element    ${rad_TermFareAvailableTrips_Opr-SmartCards}
     Comment    Enter Expiry Date value if Validate by Expiry Date
     Run Keyword If    '${termfarevalidateby}'=='Expiry Date'    Input Text    ${txt_TermFareExpiryDate_Opr-SmartCards}    ${termfareexpirydate}
     Comment    Enter Available Trips value if Validate by Available Trips
-    Run Keyword If    '${termfarevalidateby}'=='Available Trips'    Input Text    ${txt_TermFareAvailableTrips_Opr-SmartCards}    ${termfareavailabletrips}
+    Run Keyword If    '${termfarevalidateby}'=='Available Trips'    Input Text    ${txt_TermFareExpiryDate_Opr-SmartCards}    ${termfareexpirydate}
     Comment    Enter Fund Amount
     Input Text    ${txt_TermFareFundAmout_Opr-SmartCards}    ${termfarefundamount}

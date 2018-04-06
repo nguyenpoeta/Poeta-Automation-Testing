@@ -1,5 +1,5 @@
 *** Variables ***
-${url}            http://transportme-staging.poetadigital.com/index.php/admin
+${url}            http://stage-transportme.transportme.com.au/index.php/admin
 ${adminUsername}    admin@admin.com
 ${adminPassword}    123456
 ${operatorUsername}    khoa@vinasource.com
