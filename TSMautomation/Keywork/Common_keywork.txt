@@ -45,7 +45,7 @@ RandomString4Chars
 
 Check Record Is Existed
     [Arguments]    ${record_label}
-    Page Should Contain Element    //td[text()='${randomString}']
+    Page Should Contain Element    //td[text()='${record_label}']
 
 Random7digitCode
     ${temp}=    Generate Random String    7    [NUMBERS]

@@ -5,3 +5,6 @@ ${btn_New_SmartCard}    //a[text()='New SmartCard']
 ${btn_AddCard}    //input[@value='Add Card']
 ${tbl_datatable_Ad-ManageSmartCard}    //table[@id='example']
 ${drp_Companyname_Ad-ManageSmartCards}    //a[@class='chosen-single']
+${txt_Search_Ad-ManageSmartCard}    //div[@id='example_filter']//input
+${pop_SmartCardAssignmentDetail_Ad-ManageSmartCatds}    //div[@class='fancybox-skin']
+${ico_ClosePopup_Ad-ManageSmartCards}    //div[@class='fancybox-skin']/a

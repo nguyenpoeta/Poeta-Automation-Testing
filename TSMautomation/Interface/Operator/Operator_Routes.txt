@@ -5,3 +5,4 @@ ${pop_AddRouteCategory_Op-Routes}    //div[@class='fancybox-skin']
 ${btn_Save}       //input[@value='Save']
 ${txt_CategoryName_Op-Routes}    //input[@name='cat_name']
 ${tbl_Routes_Op-Routes}    //table[@id='example']
+${txt_Search_Opr-Routes}    //div[@id='example_filter']//input

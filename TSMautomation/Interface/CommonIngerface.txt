@@ -1,0 +1,2 @@
+*** Variables ***
+${fancybox}       //div[@class='fancybox-overlay fancybox-overlay-fixed']

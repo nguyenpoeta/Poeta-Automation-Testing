@@ -18,8 +18,8 @@ ${txt_StaticFareExpiryDate_Opr-SmartCards}    //input[id@='static_fare_expiry_da
 ${txt_StaticFarePassengerInfo_Opr-SmartCards}    //textarea[@id='static_fare_passenger_info']
 ${rad_StaticFareTapOnOnly_Opr-SmartCards}    //input[@id='static_fare_mode_tap_on_only']
 ${rad_StaticFareTapOn&Off_Opr-SmartCards}    //input[@id='static_fare_mode_tap_on_off']
-${rad_TermFareExpiryDate_Opr-SmartCards}    //input[@type='radio' and @data-mode='1']
-${rad_TermFareAvailableTrips_Opr-SmartCards}    //input[@type='radio' and @data-mode='2']
+${rad_TermFareExpiryDate_Opr-SmartCards}    //div[@id='term_fare_content']//input[@data-mode='1']
+${rad_TermFareAvailableTrips_Opr-SmartCards}    //div[@id='term_fare_content']//input[@data-mode='2']
 ${txt_TermFareFundAmout_Opr-SmartCards}    //input[@id='fund_amount']
 ${txt_TermFareExpiryDate_Opr-SmartCards}    //input[@id='term_fare_expire_date']
 ${txt_TermFareAvailableTrips_Opr-SmartCards}    //input[@id='term_fare_available_trips']
@@ -28,3 +28,6 @@ ${rad_DynamicFareTapOn&Off_Opr-SmartCards}    //input[@id='tap_on_off']
 ${txt_DynamicFareExpiryDate_Opr-SmartCards}    //input[@id='dynamic_fare_expire_date']
 ${drp_DynamicFareTicketType_Opr-SmartCards}    //div[@id='dynamic_fare_ticket_type_chosen']
 ${chx_AllRoutes_Opr-SmartCards}    //input[@id='checkbox-all-route-cate']
+${txt_Search_Opr-SmartCards}    //div[@class=dataTables_filter']//input
+${pop_SmartCardAssignmentToPassengerDetail_Opr-SmartCards}    //div[@class='fancybox-skin']
+${ico_ClosePopup_Opr-SmartCards}    //div[@class='fancybox-skin']/a
