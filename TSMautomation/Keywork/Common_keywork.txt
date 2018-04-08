@@ -5,6 +5,7 @@ Resource          ../Interface/Admin/Admin_HomePage.txt
 Resource          ../Interface/Operator/Operator_Home_page.txt
 Resource          ../GlobalVariable/CommonVariable.txt
 Library           String
+Resource          ../Interface/Admin/Admin_Manage_SmartCards.txt
 
 *** Keywords ***
 Logout
@@ -55,3 +56,7 @@ Random7digitCode
 Check Record Is Not Existed
     [Arguments]    ${record_label}
     Page Should Not Contain    //td[text()='${randomString}']
+
+Close fancybox
+    Click Element    ${ico_ClosePopup_Ad-ManageSmartCards}
+    Sleep    2s

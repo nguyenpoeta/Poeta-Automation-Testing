@@ -1,2 +1,2 @@
 *** Variables ***
-${fancybox}       //div[@class='fancybox-overlay fancybox-overlay-fixed']
+${fancybox}       //div[contains(class,fancybox-overlay)]

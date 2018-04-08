@@ -8,3 +8,4 @@ ${drp_Companyname_Ad-ManageSmartCards}    //a[@class='chosen-single']
 ${txt_Search_Ad-ManageSmartCard}    //div[@id='example_filter']//input
 ${pop_SmartCardAssignmentDetail_Ad-ManageSmartCatds}    //div[@class='fancybox-skin']
 ${ico_ClosePopup_Ad-ManageSmartCards}    //div[@class='fancybox-skin']/a
+${txt_Search_fancybox_Ad-ManageSmartCards}    //div[@id='example1_filter']//input

@@ -14,7 +14,7 @@ Resource          ../Interface/CommonIngerface.txt
 
 *** Test Cases ***
 TC01: Operator is able to assign card individually
-    [Documentation]    1. Open Admin
+    [Documentation]    1. Open Admin    #3 New smart card is assigned to operator successfully    #12 New smartcard is assigned succesfully
     ...    2. Open Manage smartcard
     ...    3. Create new smartcard and assign to operator
     ...    4. Logout admin
@@ -28,8 +28,7 @@ TC01: Operator is able to assign card individually
     ...    12. Save
     ...
     ...    EXPECTED RESULT:
-    ...    #3 New smart card is assigned to operator successfully
-    ...    #12 New smartcard is assigned succesfully
+    ...
     [Setup]    Launch Browser    ${url}
     Comment    STEP 1: Login with Admin role
     Login    ${adminUsername}    ${adminPassword}
@@ -42,11 +41,10 @@ TC01: Operator is able to assign card individually
     Create New SmartCard    Khoa Tran LTD    ${randomString}    ${randomString}
     Wait Until Element Is Visible    ${tbl_datatable_Ad-ManageSmartCard}
     Comment    VP: Smart is created and assigned properly
-    Open Company-SmartCard assignment \ details    Khoa Tran LTD
-    Input Text    ${txt_Search_Ad-ManageSmartCard}    ${randomString}
+    Open Company-SmartCard assignment details    Khoa Tran LTD
+    Input Text    ${txt_Search_fancybox_Ad-ManageSmartCards}    ${randomString}
     Check Record Is Existed    ${randomString}
-    Click Element    ${ico_ClosePopup_Ad-ManageSmartCards}
-    Wait Until Element Is Not Visible    ${fancybox}    10s    Fancybox still appears
+    Close fancybox
     Comment    STEP 4: Logout admin
     Logout
     Wait Until Element Is Visible    ${txt_username}
@@ -73,22 +71,23 @@ TC01: Operator is able to assign card individually
     ...    ${EMPTY}    ${EMPTY}    ${EMPTY}    ${EMPTY}    ${EMPTY}    ${EMPTY}
     ...    ${EMPTY}    ${EMPTY}    n
     Comment    VP: Smart is assigned successfully
-    Open SmartCard-Passenger assignment \ details    Khoa Tran LTD
-    Input Text    ${txt_Search_Opr-SmartCards}    ${randomString}
+    Open SmartCard-Passenger assignment details    Khoa Tran LTD
+    Click Element    ${txt_Search_fancybox_Opr-SmartCards}
+    Input Text    ${txt_Search_fancybox_Opr-SmartCards}    ${randomString}
     Check Record Is Existed    ${randomString}
-    Click Element    ${ico_ClosePopup_Opr-SmartCards}
-    Wait Until Element Is Not Visible    ${fancybox}
+    Close fancybox
     Logout
+    [Teardown]    Close Browser
 
 debug
     [Setup]    Launch Browser    ${url}
-    Login    ${operatorUsername}    ${operatorPassword}
+    Login    ${adminUsername}    ${adminPassword}
     Wait Until Element Is Visible    ${lnk_Logout}
     Comment    STEP 6: Open SmartCard
-    Navigate To Page    SmartCards
-    Open SmartCard-Passenger assignment \ details    Khoa Tran LTD
-    Input Text    //div[@id='example1_filter']//input    9618421
-    Check Record Is Existed    9618421
-    Click Element    ${ico_ClosePopup_Opr-SmartCards}
-    Wait Until Element Is Not Visible    ${fancybox}
+    Navigate To Page    Manage SmartCards
+    Input Text    ${txt_Search_Ad-ManageSmartCard}    Khoa Tran LTD
+    Click Element    //td[text()='Khoa Tran LTD']/following-sibling::td[@class='data_detail ']
+    Wait Until Element Is Not Visible    //div[@class='fancybox-loading']
+    Click Element    ${ico_ClosePopup_Ad-ManageSmartCards}
+    Wait Until Page Does Not Contain Element    ${fancybox}
     Logout

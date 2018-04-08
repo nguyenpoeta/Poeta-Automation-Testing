@@ -1,6 +1,7 @@
 *** Settings ***
 Library           Selenium2Library
 Resource          ../Interface/Admin/Admin_Manage_SmartCards.txt
+Resource          ../Interface/CommonIngerface.txt
 
 *** Keywords ***
 Create New SmartCard
@@ -13,9 +14,10 @@ Create New SmartCard
     Input Text    ${txt_Card_Number}    ${cardnumber}
     Input Text    ${txt_7_digits_code}    ${7digitscode}
     Click Element    ${btn_AddCard}
+    Sleep    1s
     Confirm Action
 
-Open Company-SmartCard assignment \ details
+Open Company-SmartCard assignment details
     [Arguments]    ${companyname}
     Input Text    ${txt_Search_Ad-ManageSmartCard}    ${companyname}
     Click Element    //td[text()='${companyname}']/following-sibling::td[@class='data_detail ']

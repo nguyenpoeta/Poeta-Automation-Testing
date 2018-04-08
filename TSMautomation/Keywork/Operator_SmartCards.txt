@@ -34,6 +34,7 @@ Assign Smart Card To Passenger
     Run Keyword If    '${allroutes}'=='y'    Unselect Checkbox    ${chx_AllRoutes_Opr-SmartCards}
     Comment    Click Assign Smartcard button
     Click Element    ${btn_AssignSmartcard_Opr-SmartCards}
+    Sleep    1s
     Confirm Action
 
 Enter No Fare Information
@@ -88,7 +89,7 @@ Enter Term Fare Information
     Comment    Enter Fund Amount
     Input Text    ${txt_TermFareFundAmout_Opr-SmartCards}    ${termfarefundamount}
 
-Open SmartCard-Passenger assignment \ details
+Open SmartCard-Passenger assignment details
     [Arguments]    ${companyname}
     Input Text    ${txt_Search_Opr-SmartCards}    ${companyname}
     Click Element    //td[text()='${companyname}']/following-sibling::td[@class='data_detail ']

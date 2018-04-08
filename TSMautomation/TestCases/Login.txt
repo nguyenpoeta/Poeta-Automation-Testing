@@ -8,6 +8,12 @@ Resource          ../Interface/Operator/Operator_Gps_Tracking.txt
 
 *** Test Cases ***
 TC01: Verify that user is able to login with valid Admin credential
+    [Documentation]    1. Open page http://stage-transportme.transportme.com.au/index.php/admin/
+    ...    2. Input admin@admin.com/123456
+    ...    3. Click on Login button
+    ...
+    ...    EXPECTED RESULT:
+    ...    Admin is able to login into CMS portal
     Comment    STEPS 1: Launch browser to http://transportme-staging.poetadigital.com/index.php/admin
     Launch Browser    ${url}
     Wait Until Element Is Visible    ${txt_password}
@@ -24,6 +30,11 @@ TC01: Verify that user is able to login with valid Admin credential
     [Teardown]    Close Browser
 
 TC02: Verify that Admin is able to logout
+    [Documentation]    1. Login with Admin credential
+    ...    2. Logout
+    ...
+    ...    EXPECTED RESULT
+    ...    Admin is able to logout
     Comment    STEP 1: Launch browser to http://transportme-staging.poetadigital.com/index.php/admin
     Launch Browser    ${url}
     Comment    STEP 2: Log in with valid Admin credential
@@ -32,11 +43,17 @@ TC02: Verify that Admin is able to logout
     Comment    STEP 3: Logout admin
     Click Element    ${lnk_Logout}
     Comment    VP: Login screen displays
-    Wait Until Element Is Visible    ${tle_Login_Title}
-    Page Should Contain Element    ${tle_Login_Title}
+    Wait Until Element Is Visible    ${tle_Title_Login}
+    Page Should Contain Element    ${tle_Title_Login}
     [Teardown]    Close Browser
 
 TC03: Verirfy that user is able to login with valid Operator credential
+    [Documentation]    1. Open page http://stage-transportme.transportme.com.au/index.php/admin/
+    ...    2. Enter Operator credential
+    ...    3. Click on Login button
+    ...
+    ...    EXPECTED RESULT:
+    ...    Operator is able to login into CMS portal
     Comment    STEPS 1: Launch browser to http://transportme-staging.poetadigital.com/index.php/admin
     Launch Browser    ${url}
     Wait Until Element Is Visible    ${txt_password}
@@ -47,12 +64,17 @@ TC03: Verirfy that user is able to login with valid Operator credential
     Comment    STEP 4: Click on Login button
     Click Element    ${btn_login}
     Comment    VP: Operator login successfully and default page is Live Tracking
-    Wait Until Element Is Visible    ${tle_GpsTracking_Live_Tracking}    10s
-    Page Should Contain Element    ${tle_GpsTracking_Live_Tracking}
+    Wait Until Element Is Visible    ${tle_LiveTracking_GpsTracking}    10s
+    Page Should Contain Element    ${tle_LiveTracking_GpsTracking}
     Logout
     [Teardown]    Close Browser
 
 TC04: Verify that Operator is able to logout
+    [Documentation]    1. Login with Operator credential
+    ...    2. Logout
+    ...
+    ...    EXPECTED RESULT
+    ...    Operator is able to logout
     Comment    STEP 1: Launch browser to http://transportme-staging.poetadigital.com/index.php/admin
     Launch Browser    ${url}
     Comment    STEP 2: Log in with valid Admin credential

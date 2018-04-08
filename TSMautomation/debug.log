@@ -13,3 +13,7 @@
 [0405/183757.417:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
 [0405/183757.417:ERROR:exception_snapshot_win.cc(88)] thread ID 2388 not found in process
 [0405/183757.417:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0406/181319.947:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0406/181319.979:ERROR:exception_snapshot_win.cc(88)] thread ID 16044 not found in process
+[0406/181319.979:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0408/104920.616:ERROR:file_io_win.cc(179)] CreateFile C:\Users\Khoa\AppData\Local\Temp\scoped_dir14784_18344\Crashpad\settings.dat: The process cannot access the file because it is being used by another process. (0x20)
