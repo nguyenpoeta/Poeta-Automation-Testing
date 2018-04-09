@@ -18,18 +18,18 @@ Verify that Operator can create new Category
     Wait Until Element Is Visible    ${lnk_Logout}    10s
     Comment    STEP 3: Navigate to Routes page
     Navigate To Page    Routes
-    Wait Until Element Is Visible    ${lnk_Privacy_Statement}
+    Wait Until Element Is Visible    ${lnk_PrivacyStatement}
     Comment    STEP 4: Click New Category button
-    Click Element    ${btn_New_Category}
-    Wait Until Element Is Visible    ${pop_Add_Route_Category}
+    Click Element    ${btn_NewCategory_Op-Routes}
+    Wait Until Element Is Visible    ${pop_AddRouteCategory_Op-Routes}
     Comment    Step 5: Input Category name
     RandomString6chars
-    Input Text    ${txt_Category_name}    ${randomString}
+    Input Text    ${txt_CategoryName_Op-Routes}    ${randomString}
     Comment    Step 6: Click Save button
     Click Element    ${btn_Save}
     Confirm Action
     Comment    VP: New Category is added successfully
-    Wait Until Element Is Visible    ${tbl_Routes}
+    Wait Until Element Is Visible    ${tbl_Routes_Op-Routes}
     Check Record Is Existed    ${randomString}
     Logout
     [Teardown]    Close Browser
@@ -42,11 +42,11 @@ Verify that Operator can delete particular exsiting Routes
     Wait Until Element Is Visible    ${lnk_Logout}    10s
     Comment    STEP 3: Navigate to Routes page
     Navigate To Page    Routes
-    Wait Until Element Is Visible    ${lnk_Privacy_Statement}
+    Wait Until Element Is Visible    ${lnk_PrivacyStatement}
     Comment    STEP 4: Delete a particular Routes
     Delete Record    ${randomString}
     Comment    VP: Particular Route is removed from table
-    Wait Until Element Is Visible    ${tbl_Routes}
+    Wait Until Element Is Visible    ${tbl_Routes_Op-Routes}
     Check Record Is Not Existed    ${randomString}
     Logout
     [Teardown]    Close Browser

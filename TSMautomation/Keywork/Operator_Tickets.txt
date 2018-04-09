@@ -7,19 +7,19 @@ Resource          ../Interface/Operator/Operator_Tickets.txt
 Create Ticket Type
     [Arguments]    ${ticket_type_name}    ${display_name}    ${add_flat_rate_in_aud}    ${is_printable}    ${is_weekly}    ${enter_ticket_validity_days}
     ...    ${ is_multi_trip}    ${enter_trip}
-    Input Text    ${txt_Ticket_Type_Name}    ${ticket_type_name}
-    Input Text    ${txt_Display_Name}    ${display_name}
-    Input Text    ${txt_Add_Flat_Rate_in_AUD}    ${add_flat_rate_in_aud}
+    Input Text    ${txt_TicketTypeName_Op-Tickets}    ${ticket_type_name}
+    Input Text    ${txt_DisplayName_Op-Tickets}    ${display_name}
+    Input Text    ${txt_AddFlatRateInAUD_Op-Tickets}    ${add_flat_rate_in_aud}
     Comment    If is_printable == y, enable the check box and vice versa
-    Run Keyword If    "${is_printable}" == "y"    Select Checkbox    ${checkbox_Is_Printable}
-    ...    ELSE IF    "${is_printable}" == "n"    Unselect Checkbox    ${checkbox_Is_Printable}
+    Run Keyword If    "${is_printable}" == "y"    Select Checkbox    ${chx_IsPrintable_Op-Tickets}
+    ...    ELSE IF    "${is_printable}" == "n"    Unselect Checkbox    ${chx_IsPrintable_Op-Tickets}
     Comment    If is_printable == y, enable the check box and vice versa
-    Run Keyword If    "${is_weekly}" == "y"    Select Checkbox    ${checkbox_Is_Multi_Day}
-    ...    ELSE IF    "${is_weekly}" == "n"    Unselect Checkbox    ${checkbox_Is_Multi_Day}
+    Run Keyword If    "${is_weekly}" == "y"    Select Checkbox    ${chx_IsMultiDay_Op-Tickets}
+    ...    ELSE IF    "${is_weekly}" == "n"    Unselect Checkbox    ${chx_IsMultiDay_Op-Tickets}
     Comment    If checkbox is enabled, input text into below field
-    Run Keyword If    "${is_weekly}" == "y"    Input Text    ${txt_Enter_Ticket_Validity_Days}    ${enter_ticket_validity_days}
+    Run Keyword If    "${is_weekly}" == "y"    Input Text    ${txt_EnterTicketValidityDays_Op-Tickets}    ${enter_ticket_validity_days}
     Comment    If is_printable == y, enable the check box and vice versa
-    Run Keyword If    "${is_multi_trip}" == "y"    Select Checkbox    ${checkbox_Is_Multi_Trip}
-    ...    ELSE IF    "${is_multi_trip}" == "n"    Unselect Checkbox    ${checkbox_Is_Multi_Trip}
+    Run Keyword If    "${is_multi_trip}" == "y"    Select Checkbox    ${chx_IsMultiTrip_Op-Tickets}
+    ...    ELSE IF    "${is_multi_trip}" == "n"    Unselect Checkbox    ${chx_IsMultiTrip_Op-Tickets}
     Comment    If checkbox is enabled, input text into below field
-    Run Keyword If    "${is_multi_trip}" == "y"    Input Text    ${txt_Enter_Trips}    ${enter_trip}
+    Run Keyword If    "${is_multi_trip}" == "y"    Input Text    ${txt_EnterTrips_Op-Tickets}    ${enter_trip}

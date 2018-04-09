@@ -1,5 +1,5 @@
 *** Variables ***
-${btn_NewTicketType_Op-Tickets}    //a[@href='http://transportme-staging.poetadigital.com/index.php/tickets/add_tickets']
+${btn_NewTicketType_Op-Tickets}    //a[text()='New Ticket Type']
 ${pop_AddTicketType_Op-Tickets}    //div[@class='fancybox-skin']
 ${txt_TicketTypeName_Op-Tickets}    //input[@name='ticket_name']
 ${txt_DisplayName_Op-Tickets}    //input[@name='ticket_display_name']
