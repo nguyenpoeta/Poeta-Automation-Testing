@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180328 16:24:38.718" generator="Robot 3.0.2 (Python 2.7.14 on win32)">
+<suite source="C:\RobotfwProject\Project1" id="s1" name="Project1">
+<suite source="C:\RobotfwProject\Project1\TestSuite2.txt" id="s1-s1" name="TestSuite2">
+<test id="s1-s1-t1" name="TestCase1">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180328 16:24:39.174" level="INFO">Opening browser 'chrome' to base url 'http://transportme-staging.poetadigital.com/index.php/admin'.</msg>
+<status status="PASS" endtime="20180328 16:24:45.988" starttime="20180328 16:24:39.172"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{LoginPageElement}[Username]</arg>
+<arg>&amp;{ListAccount}[Username1]</arg>
+</arguments>
+<msg timestamp="20180328 16:24:45.991" level="INFO">Typing text 'khoa@vinasource.com' into text field '//*[@id="frm1"]/input[1]'.</msg>
+<status status="PASS" endtime="20180328 16:24:46.354" starttime="20180328 16:24:45.989"></status>
+</kw>
+<kw name="Input Password" library="Selenium2Library">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{LoginPageElement}[Password]</arg>
+<arg>&amp;{ListAccount}[Password1]</arg>
+</arguments>
+<msg timestamp="20180328 16:24:46.357" level="INFO">Typing password into text field '//*[@id="frm1"]/input[2]'.</msg>
+<status status="PASS" endtime="20180328 16:24:46.581" starttime="20180328 16:24:46.355"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{LoginPageElement}[Loginbtn]</arg>
+</arguments>
+<msg timestamp="20180328 16:24:46.586" level="INFO">Clicking element '//*[@id="frm1"]/a'.</msg>
+<status status="PASS" endtime="20180328 16:24:47.545" starttime="20180328 16:24:46.584"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10s</arg>
+</arguments>
+<msg timestamp="20180328 16:24:57.549" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20180328 16:24:57.552" starttime="20180328 16:24:47.547"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{Menu}[Routes]</arg>
+</arguments>
+<msg timestamp="20180328 16:24:57.555" level="INFO">Clicking element '//a[text()='Routes']'.</msg>
+<status status="PASS" endtime="20180328 16:24:58.598" starttime="20180328 16:24:57.554"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{RoutesPage}[NewCategory]</arg>
+</arguments>
+<msg timestamp="20180328 16:24:58.600" level="INFO">Clicking element '//a[text()='New Category']'.</msg>
+<status status="PASS" endtime="20180328 16:24:58.890" starttime="20180328 16:24:58.599"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180328 16:25:03.896" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" endtime="20180328 16:25:03.900" starttime="20180328 16:24:58.893"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{RoutesPage}[CategoryNametxt]</arg>
+<arg>Testing RIDE</arg>
+</arguments>
+<msg timestamp="20180328 16:25:03.910" level="INFO">Typing text 'Testing RIDE' into text field '//*[@id="popup_forms_hell"]/input[1]'.</msg>
+<status status="PASS" endtime="20180328 16:25:04.355" starttime="20180328 16:25:03.906"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{RoutesPage}[Savebtn]</arg>
+</arguments>
+<msg timestamp="20180328 16:25:04.357" level="INFO">Clicking element '//*[@id="popup_forms_hell"]/input[3]'.</msg>
+<status status="PASS" endtime="20180328 16:25:04.977" starttime="20180328 16:25:04.356"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180328 16:25:09.981" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" endtime="20180328 16:25:09.981" starttime="20180328 16:25:04.979"></status>
+</kw>
+<kw name="Confirm Action" library="Selenium2Library">
+<doc>Deprecated. Use `Handle Alert` instead.</doc>
+<status status="PASS" endtime="20180328 16:25:09.996" starttime="20180328 16:25:09.983"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>New Category is created successful</arg>
+</arguments>
+<status status="PASS" endtime="20180328 16:25:10.000" starttime="20180328 16:25:09.998"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180328 16:25:15.003" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" endtime="20180328 16:25:15.004" starttime="20180328 16:25:10.001"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{Menu}[Logout]</arg>
+</arguments>
+<msg timestamp="20180328 16:25:15.007" level="INFO">Clicking element '//a[text()='Logout']'.</msg>
+<status status="PASS" endtime="20180328 16:25:15.923" starttime="20180328 16:25:15.005"></status>
+</kw>
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20180328 16:25:19.033" starttime="20180328 16:25:15.925"></status>
+</kw>
+<doc>Verify that Operator can create new Category</doc>
+<tags>
+<tag>TestCase1</tag>
+</tags>
+<status status="PASS" endtime="20180328 16:25:19.035" critical="yes" starttime="20180328 16:24:39.169"></status>
+</test>
+<test id="s1-s1-t2" name="TestCase2">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180328 16:25:19.041" level="INFO">Opening browser 'chrome' to base url 'http://transportme-staging.poetadigital.com/index.php/admin'.</msg>
+<status status="PASS" endtime="20180328 16:25:26.062" starttime="20180328 16:25:19.040"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{LoginPageElement}[Username]</arg>
+<arg>&amp;{ListAccount}[Username1]</arg>
+</arguments>
+<msg timestamp="20180328 16:25:26.065" level="INFO">Typing text 'khoa@vinasource.com' into text field '//*[@id="frm1"]/input[1]'.</msg>
+<status status="PASS" endtime="20180328 16:25:26.358" starttime="20180328 16:25:26.063"></status>
+</kw>
+<kw name="Input Password" library="Selenium2Library">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{LoginPageElement}[Password]</arg>
+<arg>&amp;{ListAccount}[Password1]</arg>
+</arguments>
+<msg timestamp="20180328 16:25:26.359" level="INFO">Typing password into text field '//*[@id="frm1"]/input[2]'.</msg>
+<status status="PASS" endtime="20180328 16:25:26.551" starttime="20180328 16:25:26.358"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{LoginPageElement}[Loginbtn]</arg>
+</arguments>
+<msg timestamp="20180328 16:25:26.552" level="INFO">Clicking element '//*[@id="frm1"]/a'.</msg>
+<status status="PASS" endtime="20180328 16:25:27.273" starttime="20180328 16:25:26.551"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10s</arg>
+</arguments>
+<msg timestamp="20180328 16:25:37.275" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20180328 16:25:37.276" starttime="20180328 16:25:27.274"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{Menu}[Routes]</arg>
+</arguments>
+<msg timestamp="20180328 16:25:37.277" level="INFO">Clicking element '//a[text()='Routes']'.</msg>
+<status status="PASS" endtime="20180328 16:25:38.366" starttime="20180328 16:25:37.276"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180328 16:25:43.373" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" endtime="20180328 16:25:43.374" starttime="20180328 16:25:38.367"></status>
+</kw>
+<kw name="DeleteRecord" library="Action">
+<arguments>
+<arg>Testing RIDE</arg>
+</arguments>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://td[text()='${InputText}']/following-sibling::td[@class='data_delete ']</arg>
+</arguments>
+<msg timestamp="20180328 16:25:43.378" level="INFO">Clicking element 'xpath://td[text()='Testing RIDE']/following-sibling::td[@class='data_delete ']'.</msg>
+<status status="PASS" endtime="20180328 16:25:43.583" starttime="20180328 16:25:43.377"></status>
+</kw>
+<status status="PASS" endtime="20180328 16:25:43.585" starttime="20180328 16:25:43.376"></status>
+</kw>
+<kw name="Confirm Action" library="Selenium2Library">
+<doc>Deprecated. Use `Handle Alert` instead.</doc>
+<status status="PASS" endtime="20180328 16:25:43.617" starttime="20180328 16:25:43.586"></status>
+</kw>
+<kw name="Confirm Action" library="Selenium2Library">
+<doc>Deprecated. Use `Handle Alert` instead.</doc>
+<status status="PASS" endtime="20180328 16:25:44.221" starttime="20180328 16:25:43.618"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20180328 16:25:47.228" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20180328 16:25:47.229" starttime="20180328 16:25:44.223"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>The record is deleted</arg>
+</arguments>
+<status status="PASS" endtime="20180328 16:25:47.231" starttime="20180328 16:25:47.230"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{Menu}[Logout]</arg>
+</arguments>
+<msg timestamp="20180328 16:25:47.232" level="INFO">Clicking element '//a[text()='Logout']'.</msg>
+<status status="PASS" endtime="20180328 16:25:48.070" starttime="20180328 16:25:47.231"></status>
+</kw>
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20180328 16:25:51.190" starttime="20180328 16:25:48.072"></status>
+</kw>
+<doc>Verify that Operator can delete a particular Category</doc>
+<tags>
+<tag>TestCase2</tag>
+</tags>
+<status status="PASS" endtime="20180328 16:25:51.192" critical="yes" starttime="20180328 16:25:19.038"></status>
+</test>
+<status status="PASS" endtime="20180328 16:25:51.195" starttime="20180328 16:24:39.149"></status>
+</suite>
+<status status="PASS" endtime="20180328 16:25:51.202" starttime="20180328 16:24:38.760"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
+</total>
+<tag>
+<stat fail="0" pass="1">TestCase1</stat>
+<stat fail="0" pass="1">TestCase2</stat>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Project1" pass="2">Project1</stat>
+<stat fail="0" id="s1-s1" name="TestSuite2" pass="2">Project1.TestSuite2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,2 @@
+*** Variables ***
+&{RoutesPage}     NewCategory=//a[text()='New Category']    CategoryNametxt=//*[@id="popup_forms_hell"]/input[1]    Savebtn=//*[@id="popup_forms_hell"]/input[3]

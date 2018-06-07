@@ -1,0 +1,3 @@
+*** Variables ***
+&{Menu}           GpsTracking=//a[text()='GpsTracking']    Stops=//a[text()='Stops']    Routes=//a[text()='Routes']    Tickets=//a[text()='Tickets']    Drivers=//a[text()='Drivers']    Buses=//a[text()='Buses']    Reports=//a[text()='Reports']
+...               PushNotification=//a[text()='Push Notification']    Message=//a[text()='Message']    SmartCards=//a[text()='SmartCards']    Setting=//a[text()='Setting']    Logout=//a[text()='Logout']    # Main Menu

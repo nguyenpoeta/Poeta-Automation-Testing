@@ -1,0 +1,17 @@
+*** Settings ***
+Library           Selenium2Library
+Library           AppiumLibrary
+
+*** Test Cases ***
+TestCase1
+    [Documentation]    Mobile Automation Testing
+    [Tags]    TestCase1
+    Open Application    http://localhost:4723/wd/hub    platformName=Android    platformVersion=5.0    deviceName=49e16e08    appPackage=com.anomo.alumni    appActivity=com.anomo.uclasocial.SplashScreen
+    Sleep    10s
+    AppiumLibrary.Click Element    id=com.anomo.alumni:id/button_next
+    AppiumLibrary.Click Element    id=com.anomo.alumni:id/button_next
+    AppiumLibrary.Click Element    id=com.anomo.alumni:id/button_next
+    Sleep    10s
+    AppiumLibrary.Click Element    id=com.anomo.alumni:id/button_signin
+    AppiumLibrary.Capture Page Screenshot
+    Close All Applications

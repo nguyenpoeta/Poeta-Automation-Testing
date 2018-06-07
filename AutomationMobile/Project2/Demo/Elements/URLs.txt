@@ -1,0 +1,2 @@
+*** Variables ***
+${MainURL}        http://stage-transportme.transportme.com.au/index.php/admin/

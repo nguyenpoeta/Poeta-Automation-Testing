@@ -1,0 +1,4 @@
+*** Variables ***
+${url}            http://transportme-staging.poetadigital.com/index.php/admin    # Login Page
+&{LoginPageElement}    Username=//*[@id="frm1"]/input[1]    Password=//*[@id="frm1"]/input[2]    Loginbtn=//*[@id="frm1"]/a    # Login Page Elements
+&{ListAccount}    Username1=khoa@vinasource.com    Password1=123456    Username2=khoa@vinasource.co    Password2=123

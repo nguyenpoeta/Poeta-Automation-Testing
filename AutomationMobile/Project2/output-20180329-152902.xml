@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180329 15:29:02.827" generator="Robot 3.0.2 (Python 2.7.14 on win32)">
+<suite source="C:\RobotfwProject\Project2" id="s1" name="Project2">
+<suite source="C:\RobotfwProject\Project2\TestSuite1.txt" id="s1-s1" name="TestSuite1">
+<test id="s1-s1-t1" name="TestCase1">
+<kw name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.</doc>
+<arguments>
+<arg>http://localhost:4723/wd/hub</arg>
+<arg>platformName=Android</arg>
+<arg>platformVersion=5.0</arg>
+<arg>deviceName=49e16e08</arg>
+<arg>appPackage=com.vinasource.anomoinc.anomo</arg>
+<arg>appActivity=DefaultSplashActivity</arg>
+</arguments>
+<msg timestamp="20180329 15:29:05.459" level="INFO">Could not connect to port 4723 on host localhost</msg>
+<msg timestamp="20180329 15:29:05.460" level="INFO">Could not get IP address for host: localhost</msg>
+<kw name="Capture Page Screenshot">
+<msg timestamp="20180329 15:29:07.472" level="FAIL">Multiple keywords with name 'Capture Page Screenshot' found. Give the full name of the keyword you want to use:
+    AppiumLibrary.Capture Page Screenshot
+    Selenium2Library.Capture Page Screenshot</msg>
+<status status="FAIL" endtime="20180329 15:29:07.473" starttime="20180329 15:29:07.472"></status>
+</kw>
+<msg timestamp="20180329 15:29:07.473" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Multiple keywords with name 'Capture Page Screenshot' found. Give the full name of the keyword you want to use:
+    AppiumLibrary.Capture Page Screenshot
+    Selenium2Library.Capture Page Screenshot</msg>
+<msg timestamp="20180329 15:29:07.487" level="FAIL">URLError: &lt;urlopen error [Errno 10061] No connection could be made because the target machine actively refused it&gt;</msg>
+<status status="FAIL" endtime="20180329 15:29:07.488" starttime="20180329 15:29:03.453"></status>
+</kw>
+<doc>Mobile Automation Testing</doc>
+<tags>
+<tag>TestCase1</tag>
+</tags>
+<status status="FAIL" endtime="20180329 15:29:07.490" critical="yes" starttime="20180329 15:29:03.451">URLError: &lt;urlopen error [Errno 10061] No connection could be made because the target machine actively refused it&gt;</status>
+</test>
+<status status="FAIL" endtime="20180329 15:29:07.494" starttime="20180329 15:29:03.441"></status>
+</suite>
+<status status="FAIL" endtime="20180329 15:29:07.498" starttime="20180329 15:29:02.871"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">TestCase1</stat>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="Project2" pass="0">Project2</stat>
+<stat fail="1" id="s1-s1" name="TestSuite1" pass="0">Project2.TestSuite1</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20180329 15:29:07.473" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Multiple keywords with name 'Capture Page Screenshot' found. Give the full name of the keyword you want to use:
+    AppiumLibrary.Capture Page Screenshot
+    Selenium2Library.Capture Page Screenshot</msg>
+</errors>
+</robot>

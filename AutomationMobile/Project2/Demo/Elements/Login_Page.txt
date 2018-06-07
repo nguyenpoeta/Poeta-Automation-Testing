@@ -1,0 +1,5 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Variables ***
+&{LoginElements}    Usernametxt=//*[@id="frm1"]/input[1]    Passwordtxt=//*[@id="frm1"]/input[2]    Loginbtn=//*[@id="frm1"]/a    Forgotpwd=/html/body/div[1]/div/a

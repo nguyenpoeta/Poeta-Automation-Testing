@@ -1,0 +1,4 @@
+*** Variables ***
+&{ListAccounts}    Admin=admin@admin.com    Adminpwd=123456
+&{NewCompany_sampledata}    CompanyName=Comp1    TicketHeaderOne=Ticket1    TicketHeaderTwo=Ticket2    ContactPerson=Comp Contact    Email=Comp1@mail.com    Password=123456    Latitude=abc
+...               Longitude=xyz

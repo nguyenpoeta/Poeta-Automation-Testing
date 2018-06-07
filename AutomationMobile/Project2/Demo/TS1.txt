@@ -1,0 +1,8 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          Business_Keywords.txt
+
+*** Test Cases ***
+TC1
+    Admin_Login
+    Create Operator

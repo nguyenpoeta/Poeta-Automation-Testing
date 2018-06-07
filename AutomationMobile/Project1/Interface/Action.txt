@@ -1,0 +1,10 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Variables ***
+${InputText}      ${EMPTY}
+
+*** Keywords ***
+DeleteRecord
+    [Arguments]    ${InputText}
+    Click Element    xpath://td[text()='${InputText}']/following-sibling::td[@class='data_delete ']

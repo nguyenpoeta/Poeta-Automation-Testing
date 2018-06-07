@@ -1,0 +1,47 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          Interface/LoginPageUI.txt
+Resource          Interface/Menu.txt
+Resource          Interface/RoutesPage.txt
+Resource          Interface/Action.txt
+
+*** Test Cases ***
+TestCase1
+    [Documentation]    Verify that Operator can create new Category
+    [Tags]    TestCase1
+    Open Browser    ${url}    chrome
+    Input Text    &{LoginPageElement}[Username]    &{ListAccount}[Username1]
+    Input Password    &{LoginPageElement}[Password]    &{ListAccount}[Password1]
+    Click Element    &{LoginPageElement}[Loginbtn]
+    Sleep    10s
+    Click Element    &{Menu}[Routes]
+    Click Element    &{RoutesPage}[NewCategory]
+    Sleep    5s
+    Input Text    &{RoutesPage}[CategoryNametxt]    Testing RIDE
+    Click Element    &{RoutesPage}[Savebtn]
+    Sleep    5s
+    Confirm Action
+    Log To Console    New Category is created successful
+    Sleep    5s
+    Capture Page Screenshot
+    Click Element    &{Menu}[Logout]
+    Close Browser
+
+TestCase2
+    [Documentation]    Verify that Operator can delete a particular Category
+    [Tags]    TestCase2
+    Open Browser    ${url}    chrome
+    Input Text    &{LoginPageElement}[Username]    &{ListAccount}[Username1]
+    Input Password    &{LoginPageElement}[Password]    &{ListAccount}[Password1]
+    Click Element    &{LoginPageElement}[Loginbtn]
+    Sleep    10s
+    Click Element    &{Menu}[Routes]
+    Sleep    5s
+    DeleteRecord    Testing RIDE
+    Confirm Action
+    Confirm Action
+    Sleep    3s
+    Log To Console    The record is deleted
+    Capture Page Screenshot
+    Click Element    &{Menu}[Logout]
+    Close Browser

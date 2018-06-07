@@ -1,0 +1,51 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          Interface/LoginPageUI.txt
+
+*** Variables ***
+
+*** Test Cases ***
+TestCase1
+    [Documentation]    Verify that user is able to login with valid credential
+    Open Browser    ${url}    chrome
+    Input Text    &{LoginPageElement}[Username]    &{ListAccount}[Username1]
+    Input Password    &{LoginPageElement}[Password]    &{ListAccount}[Password1]
+    Click Element    &{LoginPageElement}[Loginbtn]
+    Sleep    10s
+    Element Should Be Visible    //a[text()='Logout']    Logout button is present
+    Log To Console    Logout button is present
+    Click Element    //a[text()='Logout']
+    Close Browser
+
+TestCase2
+    [Documentation]    Verify that user is unable to login with incorrect Username
+    Open Browser    ${url}    chrome
+    Input Text    &{LoginPageElement}[Username]    &{ListAccount}[Username2]
+    Input Password    &{LoginPageElement}[Password]    &{ListAccount}[Password1]
+    Click Element    &{LoginPageElement}[Loginbtn]
+    Sleep    5s
+    Element Should Contain    xpath:/html/body/div[1]/div/div/p    Invalid username or password    Invalid account passed    False
+    Log To Console    Invalid account passed
+    Close Browser
+
+TestCase3
+    [Documentation]    Verify that user is unable to login with incorrect Password
+    Open Browser    ${url}    chrome
+    Input Text    &{LoginPageElement}[Username]    &{ListAccount}[Username1]
+    Input Password    &{LoginPageElement}[Password]    &{ListAccount}[Password2]
+    Click Element    &{LoginPageElement}[Loginbtn]
+    Sleep    5s
+    Element Should Contain    xpath:/html/body/div[1]/div/div/p    Invalid username or password    Invalid account passed    False
+    Log To Console    Invalid account passed
+    Close Browser
+
+TestCase4
+    [Documentation]    Verify that user is unable to login without entering Password
+    Open Browser    ${url}    chrome
+    Input Text    &{LoginPageElement}[Username]    &{ListAccount}[Username1]
+    Input Password    &{LoginPageElement}[Password]    &{ListAccount}[Password2]
+    Click Element    &{LoginPageElement}[Loginbtn]
+    Sleep    5s
+    Element Should Contain    xpath:/html/body/div[1]/div/div/p    The Password field is required.    without entering Password    False
+    Log To Console    Invalid account passed
+    Close Browser
